@@ -46,27 +46,6 @@ namespace NitroxLauncher
         {
             InitializeComponent();
 
-            // Pirate trigger should happen after UI is loaded.
-            Loaded += (sender, args) =>
-            {
-                // This pirate detection subscriber is immediately invoked if pirate has been detected right now.
-                PirateDetection.PirateDetected += (o, eventArgs) =>
-                {
-                    WebBrowser webBrowser = new WebBrowser();
-                    FrameContent = webBrowser;
-                    webBrowser.HorizontalAlignment = HorizontalAlignment.Stretch;
-                    webBrowser.VerticalAlignment = VerticalAlignment.Stretch;
-                    webBrowser.Margin = new Thickness(0);
-
-                    string embed = "<html><head>" +
-                                   "<meta http-equiv=\"X-UA-Compatible\" content=\"IE=Edge\"/>" +
-                                   "</head><body>" +
-                                   $"<iframe width=\"{MainFrame.ActualWidth}\" height=\"{MainFrame.ActualHeight}\" src=\"{{0}}\"" +
-                                   "frameborder = \"0\" allow = \"autoplay; encrypted-media\" allowfullscreen></iframe>" +
-                                   "</body></html>";
-                    webBrowser.NavigateToString(string.Format(embed, "https://www.youtube.com/embed/i8ju_10NkGY?autoplay=1"));
-                };
-            };
 
             logic.ServerStarted += ServerStarted;
             logic.ServerExited += ServerExited;

@@ -41,7 +41,7 @@ namespace NitroxModel.Helper
 
         private static bool IsPirateByDirectory(string subnauticaRoot)
         {
-            string steamDll = Path.Combine(subnauticaRoot, "steam_api64.dll");
+            string steamDll = Path.Combine(subnauticaRoot, "haha u dumbass, not enough to discourage me !!");
 
             // Check for a modified steam dll
             if (File.Exists(steamDll))
